@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciki da Raino - Kalkuletar Ovulation</title>
+    <!-- Preload resources -->
+    <link rel="preload" href="css/style.css" as="style">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <img src="images/logona.svg" alt="Logo"> <label for="">Ciki da Raino</label>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Shafin Gida</a></li>
+            <li><a href="blog.html">Shirin Daukar Ciki</a></li>
+            <li><a href="blog.html">Goyon Ciki</a></li>
+            <li><a href="contact.html">Tuntuɓe Mu</a></li>
+            <li><a href="about.html">Game Da Mu</a></li>
+            <li><a href="hosapital.html">Asibiti Mafi Kusa</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu-container" id="mobile-menu-container">
+        <div class="mobile-menu-header">
+            <button class="close-menu" id="close-menu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu">
+            <div class="bottom-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                    <span>Shafin Gida (Home)</span>
+                </a>
+                <a href="ovulation.html" class="nav-item">
+                    <i class="fas fa-venus-mars" aria-hidden="true"></i>
+                    <span>Kalkuletar Ovulation</span>
+                </a>
+                <a href="tracker.html" class="nav-item">
+                    <i class="fas fa-baby-carriage" aria-hidden="true"></i>
+                    <span>Kalkuletar Bibiyar Ciki</span>
+                </a>
+                <a href="getting-pregnant.html" class="nav-item">
+                    <i class="fas fa-heartbeat" aria-hidden="true"></i>
+                    <span>Shirye-shiryen Daukar Ciki</span>
+                </a>
+                <a href="pregnancy.html" class="nav-item">
+                    <i class="fas fa-baby" aria-hidden="true"></i>
+                    <span>Goyon Ciki (Pregnancy)</span>
+                </a>
+                <a href="parenting.html" class="nav-item">
+                    <i class="fas fa-child" aria-hidden="true"></i>
+                    <span>Kula da Yara (Parenting)</span>
+                </a>
+                <a href="hospital.html" class="nav-item">
+                    <i class="fas fa-hospital-user" aria-hidden="true"></i>
+                    <span>Nemo Asibitoci Mafi Kusa</span>
+                </a>
+                <a href="nutrition.html" class="nav-item">
+                    <i class="fas fa-apple-alt" aria-hidden="true"></i>
+                    <span>Abinci mai Gina Jiki</span>
+                </a>
+                <a href="faq.html" class="nav-item">
+                    <i class="fas fa-question-circle" aria-hidden="true"></i>
+                    <span>Tambayoyi da Amsoshi</span>
+                </a>
+                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-newspaper" aria-hidden="true"></i>
+                    <span>Labarai da Shawarwari</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <i class="fas fa-info-circle" aria-hidden="true"></i>
+                    <span>Game Da Mu (About Us)</span>
+                </a>
+                <a href="contact.html" class="nav-item">
+                    <i class="fas fa-hands-helping" aria-hidden="true"></i>
+                    <span>Tuntube Mu (Contact Us)</span>
+                </a>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Hero Section -->
+    <section class="tracker-hero" data-aos="fade">
+        <div class="container">
+            <h1>Kalkuletar Lissafa Ovulation</h1>
+            <p>Domin binciko lokacin zuwan ovulation, lokacin sake yin jinin al'ada da ranaku damar samun juna biyu cikin sauki.</p>
+        </div>
+    </section>
+
+
+   <!-- Calculator Section -->
+<section class="calculator-section" id="calculator">
+    <div class="locator-container">
+        <div class="calculator-card" data-aos="fade-up">
+            <h2 class="ico"><i class="fas fa-calculator"></i> Kalkuletar Ovulation</h2>
+            <div class="input-group">
+                <label for="last-period">Shigar Da Ranar Da Kika Fara Al'ada:</label>
+                <input type="date" id="last-period">
+            </div>
+            
+            <div class="input-group">
+                <label for="cycle-length">Zabi Kwanakin Zagayen Al'ada (Menstrual Cycle):</label>
+                <select id="cycle-length">
+                    <option value="21">Kwana 21</option>
+                    <option value="22">Kwana 22</option>
+                    <option value="23">Kwana 23</option>
+                    <option value="24">Kwana 24</option>
+                    <option value="25">Kwana 25</option>
+                    <option value="26">Kwana 26</option>
+                    <option value="27">Kwana 27</option>
+                    <option value="28" selected>Kwana 28</option>
+                    <option value="29">Kwana 29</option>
+                    <option value="30">Kwana 30</option>
+                    <option value="31">Kwana 31</option>
+                    <option value="32">Kwana 32</option>
+                    <option value="33">Kwana 33</option>
+                    <option value="34">Kwana 34</option>
+                    <option value="35">Kwana 35</option>
+                </select>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn btn-primary" id="calculate-btn">
+                    <i class="fas fa-calculator"></i> Lissafa
+                </button>
+                <button class="btn btn-secondary" id="reset-btn">
+                    <i class="fas fa-redo"></i> Sake Lissafawa
+                </button>
+            </div>
+        </div>
+    
+        <!-- Redesigned Results Container -->
+        <div class="baby-tracker-container" id="results-container" style="display: none;" data-aos="fade-up">
+            <!-- <div class="baby-tracker-header">
+                <h3>Ga Sakamakon Lissafi</h3>
+            </div> -->
+
+            <!-- Calendar Section (Now First) -->
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <h3 class="calendar-title">Kalandar Ovulation</h3>
+                    <div class="calendar-navi">
+                        <button class="btn btn-secondary" id="prev-month">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <h3 id="current-month">May 2024</h3>
+                        <button class="btn btn-secondary" id="next-month">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <table class="calendar" id="calendar">
+                    <thead>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-body">
+                        <!-- Calendar will be generated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tracker-cards-container">
+                <!-- Ovulation Day Card (Second) -->
+                <div class="tracker-card progress-card">
+                    <div class="card-icon">
+                        <i class="fas fa-egg"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ranar Zuwan Ovulation</h3>
+                        <div class="week-display" id="ovulation-day">May 1, 2024</div>
+                        <p>Wannan shine ranar da kwai zai fita daga cikin ovary</p>
+                    </div>
+                </div>
+
+                <!-- Fertile Window Card (Third) -->
+                <div class="tracker-card baby-dev-card">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Lokutan Daukar Ciki</h3>
+                        <div class="baby-size">
+                            <div class="size-comparison">Mafi kyawun lokaci don yin jima'i</div>
+                        </div>
+                        <div class="baby-milestones">
+                            <ul>
+                                <li id="fertile-window">April 27 - May 3, 2024</li>
+                                <li>Mafi yawan haɗarin ciki: <span id="peak-fertility">May 1</span></li>
+                                <li>Yawan haɗarin ciki: <span id="high-fertility">April 29 - May 2</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Period Card (Fourth) -->
+                <div class="tracker-card due-date-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Jini Al'ada Zata Iya Dawowa a Ranar</h3>
+                        <div class="due-date" id="next-period">May 15, 2024</div>
+                        <div class="countdown" id="period-countdown">14 kwanaki sun rage</div>
+                    </div>
+                </div>
+
+                <!-- Pregnancy Test Card (Fifth) -->
+                <div class="tracker-card health-tips-card">
+                    <div class="card-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Bayanin Gwajin Ciki</h3>
+                        <div class="health-tip">
+                            <p id="test-date-info">Mafi kyau ku jira kwana 1 bayan ranar da kuke tsammanin jinin al'ada (May 16, 2024) don mafi ingantaccen sakamako.</p>
+                        </div>
+                        <div class="reminder">
+                            <i class="fas fa-bell"></i> Alamomin farko na ciki: rashin jini, zazzabi, ciwon nonu
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Progress -->
+            <div class="visual-progress-container" style="display:none;">
+                <div class="circular-progress">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring-circle" stroke="#A2D7D8" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="progress-ring-circle progress-ring-fill" stroke="#FF9AA2" stroke-width="8" stroke-dasharray="326.56" stroke-dashoffset="130.624" fill="transparent" r="52" cx="60" cy="60"/>
+                    </svg>
+                    <div class="progress-text" id="cycle-progress-text">60%</div> 
+                </div>
+                <div class="pregnancy-timeline">
+                    <div class="timeline-marker" style="left: 60%;">
+                        <div class="marker-dot"></div>
+                        <div class="marker-label">Mako 2</div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+       
+    <!-- Education Section -->
+    <section class="articles" id="resources" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-book-open"></i> Albarkatun Fertility</h2>
+            <p class="section-subtitle">Karanta ƙarin bayani game da ovulation da daukar ciki</p>
+            <div class="articles-grid">
+                <div class="article-card" data-aos="fade-up">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" aria-label="Understanding Your Cycle"></div>
+                    <div class="article-content">
+                        <span class="article-category">Ilimi</span>
+                        <h3>Fahimtar Tsarin Al'ada</h3>
+                        <p>Koyi yadda za a bi diddigin tsarin al'adarku da gano ranakunku masu yawan haihuwa.</p>
+                        <a href="#" class="read-more">Karanta ƙarin <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" aria-label="Boosting Fertility Naturally"></div>
+                    <div class="article-content">
+                        <span class="article-category">Shawara</span>
+                        <h3>Haɓaka Haihuwa Ta Halitta</h3>
+                        <p>Gano canje-canjen rayuwa waɗanda zasu iya haɓaka damar ku na samun ciki.</p>
+                        <a href="#" class="read-more">Karanta ƙarin <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" aria-label="Signs of Ovulation"></div>
+                    <div class="article-content">
+                        <span class="article-category">Ilimi</span>
+                        <h3>Alamun Ovulation</h3>
+                        <p>Gane alamun jiki waɗanda ke nuna cewa kuna cikin ovulation.</p>
+                        <a href="#" class="read-more">Karanta ƙarin <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Kasance da Sabbin Labarai</h2>
+            <p class="section-subtitle">Yi rajista da jaridarmu don samun shawarwari da sabbin bayanai kan ciki a kowane mako.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Shigar da adireshin email dinka" class="newsletter-input" required aria-label="Email address">
+                <button type="submit" class="newsletter-btn">Yi Rajista Yanzu</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Ciki da Raino</h3>
+                    <p>Jarida domin lafiyar uwa da ta jariri</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Hanyoyin Hanya</h4>
+                    <ul>
+                        <li><a href="index.html">Shafin Gida</a></li>
+                        <li><a href="about.html">Game Da Mu</a></li>
+                        <li><a href="blog.html">Labarai</a></li>
+                        <li><a href="contact.html">Tuntuɓe Mu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Albarkatun</h4>
+                    <ul>
+                        <li><a href="ovulation.html">Kalkuletar Ovulation</a></li>
+                        <li><a href="tracker.html">Bibiyar Ciki</a></li>
+                        <li><a href="nutrition.html">Abinci mai Gina Jiki</a></li>
+                        <li><a href="hospital.html">Asibitoci</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Kasance da Sabbin Labarai</h4>
+                    <form class="footer-newsletter-form">
+                        <input type="email" placeholder="Adireshin email" required aria-label="Email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="year"></span> Yar'aro Creative. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Sharuɗɗan Amfani</a>
+                    <a href="#">Manufar Keɓantawa</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+   <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+          duration: 800,
+          offset: 100,
+          once: true
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+          const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+          const currentPage = window.location.pathname.split('/').pop();
+
+          navItems.forEach(link => {
+              const linkPage = link.getAttribute('href');
+              if (linkPage === currentPage) {
+                  link.classList.add('active');
+              }
+          });
+      });
+
+      // Mobile Menu Toggle
+      const hamburger = document.getElementById('hamburger');
+      const closeMenu = document.getElementById('close-menu');
+      const mobileMenuContainer = document.getElementById('mobile-menu-container');
+      const overlay = document.getElementById('overlay');
+
+      hamburger.addEventListener('click', function() {
+          mobileMenuContainer.classList.add('open');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+      });
+
+      closeMenu.addEventListener('click', function() {
+          mobileMenuContainer.classList.remove('open');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+      });
+
+      overlay.addEventListener('click', function() {
+          mobileMenuContainer.classList.remove('open');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll('.mobile-menu a').forEach(link => {
+          link.addEventListener('click', function() {
+              mobileMenuContainer.classList.remove('open');
+              overlay.classList.remove('active');
+              document.body.style.overflow = '';
+          });
+      });
+
+      // Set current year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Ovulation Calculator Logic
+      const calculateBtn = document.getElementById('calculate-btn');
+      const resetBtn = document.getElementById('reset-btn');
+      const resultsContainer = document.getElementById('results-container');
+      const lastPeriodInput = document.getElementById('last-period');
+      const cycleLengthSelect = document.getElementById('cycle-length');
+
+      // Calendar Navigation Variables
+      let currentMonth = new Date().getMonth();
+      let currentYear = new Date().getFullYear();
+      let ovulationDates = [];
+      let fertileWindows = [];
+      let cycleLength = 28;
+
+      // Set default date to today
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Normalize time
+      const formattedDate = today.toISOString().split('T')[0];
+      lastPeriodInput.value = formattedDate;
+
+      // Calculate ovulation and fertile window
+      calculateBtn.addEventListener('click', function() {
+          // Show loading state
+          const originalBtnText = calculateBtn.innerHTML;
+          calculateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Ana Lissafawa...';
+          calculateBtn.disabled = true;
+          
+          // Allow UI to update before heavy calculations
+          setTimeout(() => {
+              const lastPeriod = new Date(lastPeriodInput.value);
+              lastPeriod.setHours(0, 0, 0, 0); // Normalize time
+              
+              if (isNaN(lastPeriod.getTime())) {
+                  alert('Da fatan za a shigar da ranar haila ta ƙarshe da ta dace');
+                  calculateBtn.innerHTML = originalBtnText;
+                  calculateBtn.disabled = false;
+                  return;
+              }
+              
+              cycleLength = parseInt(cycleLengthSelect.value);
+              
+              // Calculate all future ovulation dates and fertile windows (6 months ahead)
+              ovulationDates = [];
+              fertileWindows = [];
+              
+              // Calculate for current cycle
+              calculateCycleDates(lastPeriod, cycleLength);
+              
+              // Calculate for next 6 cycles
+              let nextPeriod = new Date(lastPeriod);
+              for (let i = 0; i < 6; i++) {
+                  nextPeriod.setDate(nextPeriod.getDate() + cycleLength);
+                  calculateCycleDates(nextPeriod, cycleLength);
+              }
+              
+              // Update results display with current cycle dates
+              const currentOvulation = ovulationDates[0];
+              const currentFertileWindow = fertileWindows[0];
+              const nextPeriodDate = new Date(lastPeriod.getTime() + cycleLength * 86400000);
+              
+              document.getElementById('next-period').textContent = formatDate(nextPeriodDate);
+              document.getElementById('ovulation-day').textContent = formatDate(currentOvulation.date);
+              document.getElementById('fertile-window').textContent = 
+                  `${formatDate(currentFertileWindow.start)} - ${formatDate(currentFertileWindow.end)}`;
+              document.getElementById('peak-fertility').textContent = formatDate(currentOvulation.date);
+              
+              // Calculate high fertility days (3 days before ovulation)
+              const highFertilityStart = new Date(currentOvulation.date);
+              highFertilityStart.setDate(highFertilityStart.getDate() - 3);
+              document.getElementById('high-fertility').textContent = 
+                  `${formatDate(highFertilityStart)} - ${formatDate(currentOvulation.date)}`;
+              
+              // Update pregnancy test information
+              const testDate = new Date(nextPeriodDate);
+              testDate.setDate(testDate.getDate() + 1); // Day after expected period
+              document.getElementById('test-date-info').textContent = 
+                  `Mafi kyau ku jira kwana 1 bayan ranar da kuke tsammanin jinin al'ada (${formatDate(testDate)}) don mafi ingantaccen sakamako.`;
+              
+              // Calculate cycle progress
+              const daysPassed = Math.floor((today - lastPeriod) / (1000 * 60 * 60 * 24));
+              const percentComplete = Math.min(100, Math.round((daysPassed / cycleLength) * 100));
+              
+              // Update progress elements
+              document.getElementById('cycle-progress-text').textContent = `${percentComplete}%`;
+              
+              // Update countdown to next period
+              const daysRemaining = cycleLength - daysPassed;
+              document.getElementById('period-countdown').textContent = 
+                  `${daysRemaining} kwanaki sun rage`;
+              
+              // Update timeline marker
+              document.querySelector('.timeline-marker').style.left = `${percentComplete}%`;
+              document.querySelector('.marker-label').textContent = `Mako ${Math.floor(daysPassed/7)}`;
+              
+              // Show results
+              resultsContainer.style.display = 'block';
+              
+              // Generate calendar for current month
+              currentMonth = today.getMonth();
+              currentYear = today.getFullYear();
+              generateCalendar();
+              
+              // Restore button state
+              calculateBtn.innerHTML = originalBtnText;
+              calculateBtn.disabled = false;
+              
+              // Smooth scroll to results
+              setTimeout(() => {
+                  resultsContainer.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start'
+                  });
+                  
+                  // Add focus for better accessibility
+                  resultsContainer.setAttribute('tabindex', '-1');
+                  resultsContainer.focus();
+              }, 100);
+          }, 50);
+      });
+
+      // Calculate dates for one cycle
+      function calculateCycleDates(periodStart, cycleDays) {
+          const nextPeriod = new Date(periodStart);
+          nextPeriod.setDate(nextPeriod.getDate() + cycleDays);
+          
+          // Calculate ovulation date (14 days before next period)
+          const ovulationDate = new Date(nextPeriod);
+          ovulationDate.setDate(ovulationDate.getDate() - 14);
+          
+          // Calculate fertile window (5 days before ovulation to 1 day after)
+          const fertileStart = new Date(ovulationDate);
+          fertileStart.setDate(fertileStart.getDate() - 5);
+          
+          const fertileEnd = new Date(ovulationDate);
+          fertileEnd.setDate(fertileEnd.getDate() + 1);
+          
+          ovulationDates.push({
+              date: ovulationDate,
+              cycleStart: new Date(periodStart)
+          });
+          
+          fertileWindows.push({
+              start: fertileStart,
+              end: fertileEnd,
+              cycleStart: new Date(periodStart)
+          });
+      }
+
+      // Reset calculator
+      resetBtn.addEventListener('click', function() {
+          lastPeriodInput.value = formattedDate;
+          cycleLengthSelect.value = '28';
+          resultsContainer.style.display = 'none';
+          ovulationDates = [];
+          fertileWindows = [];
+          generateCalendar(); // Regenerate calendar without fertility markers
+      });
+
+      // Calendar Navigation
+      document.getElementById('prev-month').addEventListener('click', function() {
+          currentMonth--;
+          if (currentMonth < 0) {
+              currentMonth = 11;
+              currentYear--;
+          }
+          generateCalendar();
+      });
+
+      document.getElementById('next-month').addEventListener('click', function() {
+          currentMonth++;
+          if (currentMonth > 11) {
+              currentMonth = 0;
+              currentYear++;
+          }
+          generateCalendar();
+      });
+
+
+
+      
+
+      function updateCalendarHeader() {
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+                      "July", "August", "September", "October", "November", "December"];
+    document.getElementById('current-month').textContent = 
+        `${monthNames[currentMonth]} ${currentYear}`;
+}
+
+
+
+
+
+
+
+      // Update your existing generateCalendar function with this:
+function generateCalendar() {
+    const calendarBody = document.getElementById('calendar-body');
+    calendarBody.innerHTML = '';
+    
+    const firstDay = new Date(currentYear, currentMonth, 1);
+    const lastDay = new Date(currentYear, currentMonth + 1, 0);
+    const daysInMonth = lastDay.getDate();
+    const startingDay = firstDay.getDay();
+    
+    let date = 1;
+    
+    // Create calendar rows
+    for (let i = 0; i < 6; i++) {
+        // Stop if we've gone through all days
+        if (date > daysInMonth) break;
+        
+        const row = document.createElement('tr');
+        
+        // Create cells for each day of the week
+        for (let j = 0; j < 7; j++) {
+            const cell = document.createElement('td');
+            
+            if (i === 0 && j < startingDay) {
+                // Empty cells before the first day of the month
+                cell.textContent = '';
+            } else if (date > daysInMonth) {
+                // Empty cells after the last day of the month
+                cell.textContent = '';
+            } else {
+                // Cells with dates
+                const daySpan = document.createElement('span');
+                daySpan.textContent = date;
+                cell.appendChild(daySpan);
+                
+                // Create date object for comparison
+                const currentDate = new Date(currentYear, currentMonth, date);
+                currentDate.setHours(0, 0, 0, 0);
+                
+                // Mark current day
+                if (currentDate.getTime() === today.getTime()) {
+                    cell.classList.add('today');
+                }
+                
+                // Check if we have calculated fertility data
+                if (ovulationDates.length > 0) {
+                    // Mark current cycle's fertile days
+                    const currentFertileWindow = fertileWindows[0];
+                    if (currentDate >= currentFertileWindow.start && currentDate <= currentFertileWindow.end) {
+                        if (currentDate.getMonth() === currentMonth && currentDate.getFullYear() === currentYear) {
+                            // Check if this is the ovulation day
+                            const currentOvulation = ovulationDates[0];
+                            if (currentDate.getTime() === currentOvulation.date.getTime()) {
+                                cell.classList.add('ovulation-day');
+                            } else {
+                                cell.classList.add('fertile-day');
+                            }
+                        }
+                    }
+                    
+                    // Mark future cycles
+                    for (let i = 1; i < ovulationDates.length; i++) {
+                        const futureOvulation = ovulationDates[i];
+                        const futureWindow = fertileWindows[i];
+                        
+                        // Mark future fertile days
+                        if (currentDate >= futureWindow.start && currentDate <= futureWindow.end) {
+                            if (currentDate.getMonth() === currentMonth && currentDate.getFullYear() === currentYear) {
+                                // Check if this is the ovulation day
+                                if (currentDate.getTime() === futureOvulation.date.getTime()) {
+                                    cell.classList.add('ovulation-day');
+                                } else {
+                                    cell.classList.add('fertile-day');
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                date++;
+            }
+            
+            row.appendChild(cell);
+        }
+        
+        calendarBody.appendChild(row);
+    }
+    
+    updateCalendarHeader();
+}
+      // Format date as "Month Day, Year"
+      function formatDate(date) {
+          const options = { 
+              month: 'long', 
+              day: 'numeric', 
+              year: 'numeric' 
+          };
+          return new Intl.DateTimeFormat('ha', options).format(date);
+      }
+
+      // Initialize calendar
+      generateCalendar();
+
+      // Add smooth scrolling to HTML element
+      document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+
+
+</body>
+</html>

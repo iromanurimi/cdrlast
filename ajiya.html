@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Info Tooltip</title>
+  <style>
+    .info-icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 5px;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .tooltip-box {
+      position: absolute;
+      top: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      white-space: nowrap;
+      z-index: 100;
+      display: none;
+    }
+
+    .tooltip-box::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #333 transparent transparent transparent;
+    }
+
+    .info-icon.active .tooltip-box {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <label>
+    Password
+    <span class="info-icon" onclick="toggleTooltip(this)">
+      ?
+      <span class="tooltip-box">At least 8 characters required.</span>
+    </span>
+  </label>
+
+  <script>
+    function toggleTooltip(el) {
+      // Hide all other tooltips
+      document.querySelectorAll('.info-icon').forEach(icon => {
+        if (icon !== el) icon.classList.remove('active');
+      });
+
+      // Toggle current
+      el.classList.toggle('active');
+    }
+
+    // Optional: hide tooltip if user clicks outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.info-icon')) {
+        document.querySelectorAll('.info-icon').forEach(icon => {
+          icon.classList.remove('active');
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

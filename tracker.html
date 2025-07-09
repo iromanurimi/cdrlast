@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciki da Raino - Kalkuletar Binciko Lokacin Haihuwa</title>
+    <!-- Preload resources -->
+    <link rel="preload" href="css/style.css" as="style">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <img src="images/logona.svg" alt="Logo"> <label for="">Ciki da Raino</label>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Shafin Gida</a></li>
+            <li><a href="blog.html">Shirin Daukar Ciki</a></li>
+            <li><a href="blog.html">Goyon Ciki</a></li>
+            <li><a href="contact.html">Tuntuɓe Mu</a></li>
+            <li><a href="about.html">Game Da Mu</a></li>
+            <li><a href="hosapital.html">Asibiti Mafi Kusa</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu-container" id="mobile-menu-container">
+        <div class="mobile-menu-header">
+            <button class="close-menu" id="close-menu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu">
+            <div class="bottom-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                    <span>Shafin Gida (Home)</span>
+                </a>
+                <a href="ovulation.html" class="nav-item">
+                    <i class="fas fa-venus-mars" aria-hidden="true"></i>
+                    <span>Kalkuletar Ovulation</span>
+                </a>
+                <a href="tracker.html" class="nav-item">
+                    <i class="fas fa-baby-carriage" aria-hidden="true"></i>
+                    <span>Kalkuletar Binciko EDD</span>
+                </a>
+                <a href="getting-pregnant.html" class="nav-item">
+                    <i class="fas fa-heartbeat" aria-hidden="true"></i>
+                    <span>Shirye-shiryen Daukar Ciki</span>
+                </a>
+                <a href="pregnancy.html" class="nav-item">
+                    <i class="fas fa-baby" aria-hidden="true"></i>
+                    <span>Goyon Ciki (Pregnancy)</span>
+                </a>
+                <a href="parenting.html" class="nav-item">
+                    <i class="fas fa-child" aria-hidden="true"></i>
+                    <span>Kula da Yara (Parenting)</span>
+                </a>
+                <a href="hospital.html" class="nav-item">
+                    <i class="fas fa-hospital-user" aria-hidden="true"></i>
+                    <span>Nemo Asibitoci Mafi Kusa</span>
+                </a>
+                <a href="nutrition.html" class="nav-item">
+                    <i class="fas fa-apple-alt" aria-hidden="true"></i>
+                    <span>Abinci mai Gina Jiki</span>
+                </a>
+                <a href="faq.html" class="nav-item">
+                    <i class="fas fa-question-circle" aria-hidden="true"></i>
+                    <span>Tambayoyi da Amsoshi</span>
+                </a>
+                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-newspaper" aria-hidden="true"></i>
+                    <span>Labarai da Shawarwari</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <i class="fas fa-info-circle" aria-hidden="true"></i>
+                    <span>Game Da Mu (About Us)</span>
+                </a>
+                <a href="contact.html" class="nav-item">
+                    <i class="fas fa-hands-helping" aria-hidden="true"></i>
+                    <span>Tuntube Mu (Contact Us)</span>
+                </a>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Hero Section -->
+    <section class="tracker-hero" data-aos="fade">
+        <div class="container">
+            <h1>Kalkuletar Bibiyar Ciki</h1>
+            <p>Kalkuletar Binciko EDD, Makonnin Ciki, Zangon Ciki da Kwanakin Da Suka Rage Kafin Haihuwa.</p>
+        </div>
+    </section>
+    
+
+    <!-- Calculator Section -->
+    <section class="calculator-section" id="dashboard">
+        <div class="locator-container">
+            <div class="calculator-card" data-aos="fade-up">
+                <h2 class="ico"><i class="fas fa-baby-carriage"></i> Kalkuletar Bibiyar Ciki</h2>
+                <div class="input-group">
+                    <label for="calculation-method">Zabi Tsarin Bincike:</label>
+                    <select id="calculation-method">
+                        <option value="lmp">Bincike da - LMP</option>
+                        <option value="ed">Bincike da - EDD</option>
+                    </select>
+                </div>
+                
+                <div class="input-group" id="lmp-input">
+                    <label for="last-period">Shigar Da Ranar Da Jini Ya Zo Miki Na Karshe (LMP):</label>
+                    <input type="date" id="last-period">
+                </div>
+                
+                <div class="input-group" id="ed-input" style="display: none;">
+                    <label for="due-date">Shigar Da EDD Dinki:</label>
+                    <input type="date" id="due-date">
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-primary" id="calculate-btn">
+                        <i class="fas fa-calculator"></i> Lissafa
+                    </button>
+                    <button class="btn btn-secondary" id="reset-btn">
+                        <i class="fas fa-redo"></i> Sake Lissafi
+                    </button>
+                </div>
+            </div>
+            
+            <div class="baby-tracker-container" id="pregnancy-info" style="display: none;">
+            <!-- <div class="baby-tracker-header">
+                <h2>Tafiyar Cikin Ciki</h2>
+            </div> -->
+
+            <div class="tracker-cards-container">
+                <!-- Due Date Card -->
+                <div class="tracker-card due-date-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Kiyasin Ranar Haihuwa (EDD)</h3>
+                        <div class="due-date" id="due-date-display">Janairu 5, 2025</div>
+                        <div class="countdown" id="days-remaining">84 kwanaki sun rage</div>
+                    </div>
+                </div>
+
+               <!-- Progress Card -->
+<div class="tracker-card progress-card">
+    <div class="card-icon">
+        <i class="fas fa-chart-line"></i>
+    </div>
+    <div class="card-content">
+        <h3>Kwanakin Ciki (Gest. Age) </h3>
+        <div class="week-display" id="current-week">Mako 24, Rana 3</div>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 60%;"></div>
+            </div>
+            <div class="progress-percent" id="progress-percent">60% cikakke</div>
+        </div>
+         <div class="month-display" id="current-month">Wata 5</div> <!-- Add this line -->
+         <div class="trimester-info" id="trimester-info">Zango na 2 (Makonni 14-27)</div>
+    </div>
+</div>
+                <!-- Baby Development Card -->
+                <div class="tracker-card baby-dev-card">
+                    <div class="card-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ci Gaban Jariri</h3>
+                        <div class="baby-size" id="baby-size">
+                            <div class="size-comparison">Girman mango</div>
+                            <div class="size-image">
+                                <img src="https://via.placeholder.com/100x100?text=Mango" alt="Kwatancen girman jariri" id="baby-size-image">
+                            </div>
+                        </div>
+                        <div class="baby-milestones" id="baby-milestones">
+                            <ul>
+                                <li>Idanu sun fara buɗewa</li>
+                                <li>Ana haɓaka ƙwanƙwasa dandano</li>
+                                <li>Ana yin motsin numfashi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Health Tips Card -->
+                <div class="tracker-card health-tips-card">
+                    <div class="card-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Shawarwari na Wannan Mako</h3>
+                        <div class="health-tip" id="health-tip">
+                            <p>Ƙara yawan abinci mai ƙarfe kamar ganye da naman rago don tallafawa girma da hana anemia.</p>
+                        </div>
+                        <div class="reminder" id="reminder">
+                            <i class="fas fa-bell"></i> Kar a manta da ziyarar kula da ciki a wannan mako!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Progress -->
+            <div class="visual-progress-container">
+                <div class="circular-progress">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring-circle" stroke="#A2D7D8" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="progress-ring-circle progress-ring-fill" stroke="#FF9AA2" stroke-width="8" stroke-dasharray="326.56" stroke-dashoffset="130.624" fill="transparent" r="52" cx="60" cy="60"/>
+                    </svg>
+                    <div class="progress-text" id="circular-progress-text">60%</div>
+                </div>
+                <div class="pregnancy-timeline">
+                    <div class="timeline-marker" style="left: 60%;">
+                        <div class="marker-dot"></div>
+                        <div class="marker-label">Mako 24</div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+    
+  
+    
+
+
+    
+    <!-- Education Section -->
+    <section class="articles" id="resources" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-book-open"></i> Albarkatun Ilmantarwa</h2>
+            <p class="section-subtitle">Karanta ƙarin bayani game da ciki da haihuwa</p>
+            <div class="articles-grid">
+                <div class="article-card" data-aos="fade-up">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" aria-label="Understanding Pregnancy"></div>
+                    <div class="article-content">
+                        <span class="article-category">Ilimi</span>
+                        <h3>Fahimtar Tsarin Haiku</h3>
+                        <p>Koyi yadda ake bin diddigin lokacin haiku da gano ranaku masu yawan haifuwa.</p>
+                        <a href="#" class="read-more">Kara karantawa <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" aria-label="Boosting Fertility Naturally"></div>
+                    <div class="article-content">
+                        <span class="article-category">Shawara</span>
+                        <h3>Ƙara Haifuwa ta Halitta</h3>
+                        <p>Gano canje-canjen rayuwa waɗanda zasu iya inganta damar haihuwa.</p>
+                        <a href="#" class="read-more">Kara karantawa <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" aria-label="Signs of Ovulation"></div>
+                    <div class="article-content">
+                        <span class="article-category">Ilimi</span>
+                        <h3>Alamun Ovulation</h3>
+                        <p>Gano alamun jiki waɗanda ke nuna cewa kuna cikin ovulation.</p>
+                        <a href="#" class="read-more">Kara karantawa <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Kasance da Sabbin Labarai</h2>
+            <p class="section-subtitle">Yi rajista da jaridarmu don samun shawarwari da sabbin bayanai kan ciki a kowane mako.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Shigar da adireshin email dinka" class="newsletter-input" required aria-label="Email address">
+                <button type="submit" class="newsletter-btn">Yi Rajista Yanzu</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Ciki da Raino</h3>
+                    <p>Jarida domin lafiyar uwa da ta jariri</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Hanyoyin Hanya</h4>
+                    <ul>
+                        <li><a href="index.html">Shafin Gida</a></li>
+                        <li><a href="about.html">Game Da Mu</a></li>
+                        <li><a href="blog.html">Labarai</a></li>
+                        <li><a href="contact.html">Tuntuɓe Mu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Albarkatun</h4>
+                    <ul>
+                        <li><a href="ovulation.html">Kalkuletar Ovulation</a></li>
+                        <li><a href="tracker.html">Bibiyar Ciki</a></li>
+                        <li><a href="nutrition.html">Abinci mai Gina Jiki</a></li>
+                        <li><a href="hospital.html">Asibitoci</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Kasance da Sabbin Labarai</h4>
+                    <form class="footer-newsletter-form">
+                        <input type="email" placeholder="Adireshin email" required aria-label="Email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="year"></span> Yar'aro Creative. Duk haƙƙoƙin suna kiyayye.</p>
+                <div class="footer-legal">
+                    <a href="#">Sharuɗɗan Amfani</a>
+                    <a href="#">Manufar Keɓantawa</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <!-- JavaScript -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        offset: 100,
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+        const currentPage = window.location.pathname.split('/').pop();
+
+        navItems.forEach(link => {
+            const linkPage = link.getAttribute('href');
+            if (linkPage === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const closeMenu = document.getElementById('close-menu');
+    const mobileMenuContainer = document.getElementById('mobile-menu-container');
+    const overlay = document.getElementById('overlay');
+    
+    hamburger.addEventListener('click', function() {
+        mobileMenuContainer.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    closeMenu.addEventListener('click', function() {
+        mobileMenuContainer.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    overlay.addEventListener('click', function() {
+        mobileMenuContainer.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenuContainer.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Toggle calculation method
+    document.getElementById('calculation-method').addEventListener('change', function() {
+        if (this.value === 'lmp') {
+            document.getElementById('lmp-input').style.display = 'block';
+            document.getElementById('ed-input').style.display = 'none';
+        } else {
+            document.getElementById('lmp-input').style.display = 'none';
+            document.getElementById('ed-input').style.display = 'block';
+        }
+    });
+    
+    // Baby Development Data (for all 40 weeks)
+    const babyDevelopmentData = {
+        4: { 
+            size: "Irin Poppy", 
+            sizeImage: "images/7.jpg", 
+            milestones: [
+                "Bututun jijiya ya fara samuwa",
+                "Zuciya ta fara bugawa"
+            ],
+            healthTips: [
+                "Fara shan folic acid don hana lahani ga jijiyoyin jiki",
+                "Tsaya shan barasa da sigari"
+            ],
+            reminder: "Yi gwajin ciki idan ba ku yi ba"
+        },
+        8: { 
+            size: "Rasberi", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Raspberry", 
+            milestones: [
+                "Yatsun hannu da ƙafafu sun fara samuwa",
+                "Idanu da kunnuwa suna ci gaba"
+            ],
+            healthTips: [
+                "Ci abinci kaɗan kaɗan sau da yawa don magance tashin zuciya",
+                "A guji abinci mai yawan gishiri"
+            ],
+            reminder: "Yi gwajin ciki na farko"
+        },
+        12: { 
+            size: "Plum", 
+            sizeImage: "images/7.jpg", 
+            milestones: [
+                "Dukkan manyan gabobin jiki sun fara samuwa",
+                "Yatsun hannu da ƙafafu sun rabu sosai"
+            ],
+            healthTips: [
+                "Ƙara yawan abinci mai gina jiki kamar omega-3 fatty acids",
+                "Fara yin motsa jiki na yau da kullun"
+            ],
+            reminder: "Yi gwajin ciki na biyu"
+        },
+        16: { 
+            size: "Avocado", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Avocado", 
+            milestones: [
+                "Gashin kai yana fara samuwa",
+                "Za a iya fara jin motsin jariri"
+            ],
+            healthTips: [
+                "Fara yin motsa jiki na ƙashin ƙugu (Kegels)",
+                "Ci abinci mai yawan fiber don hana maƙarƙashiya"
+            ],
+            reminder: "Yi gwajin ciki na uku"
+        },
+        20: { 
+            size: "Ayaba", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Banana", 
+            milestones: [
+                "Vernix caseosa (kariya) yana samuwa",
+                "Za a iya gano jinsin jariri"
+            ],
+            healthTips: [
+                "Kwana a gefenku don inganta jigilar jini",
+                "Ci abinci mai yawan ƙarfe don hana anemia"
+            ],
+            reminder: "Yi gwajin ciki na hudu"
+        },
+        24: { 
+            size: "Masara", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Corn", 
+            milestones: [
+                "Idanu suna fara buɗewa",
+                "Ana haɓaka ƙwanƙwasa dandano",
+                "Ana yin motsin numfashi"
+            ],
+            healthTips: [
+                "Ƙara yawan abinci mai ƙarfe kamar ganye da naman rago",
+                "Kwana a gefen hagu"
+            ],
+            reminder: "Yi gwajin ciki na biyar"
+        },
+        28: { 
+            size: "Gauta", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Eggplant", 
+            milestones: [
+                "Idanu suna iya buɗewa da rufewa",
+                "Jariri yana iya mafarki yayin barci"
+            ],
+            healthTips: [
+                "Yi allurar Tdap don kare jariri",
+                "Lura da motsin jariri kowace rana"
+            ],
+            reminder: "Yi gwajin ciki na shida"
+        },
+        32: { 
+            size: "Jicama", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Jicama", 
+            milestones: [
+                "Yana atisayen motsin numfashi",
+                "Fata tana zama ƙasa da ƙuƙumi"
+            ],
+            healthTips: [
+                "Ci abinci mai yawan calcium don ƙarfafa ƙasusuwa",
+                "Yi shawarwari game da shirin haihuwa"
+            ],
+            reminder: "Yi gwajin ciki na bakwai"
+        },
+        36: { 
+            size: "Lettuce", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Lettuce", 
+            milestones: [
+                "Jariri na iya zaune a matsayin kai ƙasa",
+                "Huhu sun kusan cika"
+            ],
+            healthTips: [
+                "Shirya jakar asibiti",
+                "Yi shawarwari game da alamun haihuwa"
+            ],
+            reminder: "Yi gwajin ciki na kowace mako"
+        },
+        40: { 
+            size: "Kabewa", 
+            sizeImage: "https://via.placeholder.com/50x50?text=Pumpkin", 
+            milestones: [
+                "Ci gaban cikakken lokaci ya cika",
+                "A shirye don rayuwa a wajen mahaifa"
+            ],
+            healthTips: [
+                "San alamun haihuwa kamar ƙwanƙwasa na yau da kullun",
+                "A shirye don zuwa asibiti"
+            ],
+            reminder: "Yi gwajin ciki na kowace mako"
+        }
+    };
+
+    // Calculate comprehensive pregnancy progress
+    function calculatePregnancyProgress(dueDate, currentDate = new Date()) {
+        const totalDays = 280; // 40 weeks * 7 days
+        const conceptionDate = new Date(dueDate);
+        conceptionDate.setDate(conceptionDate.getDate() - totalDays);
+        
+        const daysPassed = Math.floor((currentDate - conceptionDate) / (1000 * 60 * 60 * 24));
+        const daysRemaining = Math.max(0, Math.floor((dueDate - currentDate) / (1000 * 60 * 60 * 24)));
+        
+        const weeks = Math.min(40, Math.floor(daysPassed / 7));
+        const days = daysPassed % 7;
+        const percentComplete = Math.min(100, Math.round((daysPassed / totalDays) * 100));
+        
+        let trimester;
+        if (weeks < 14) {
+            trimester = '1st';
+        } else if (weeks < 28) {
+            trimester = '2nd';
+        } else {
+            trimester = '3rd';
+        }
+        
+        return {
+            weeks,
+            days,
+            percentComplete,
+            daysRemaining,
+            trimester,
+            conceptionDate,
+            currentDate
+        };
+    }
+
+    // Format date as "Month Day, Year"
+    function formatDate(date) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString('ha-NG', options);
+    }
+
+  function updatePregnancyInfo(dueDate) {
+    const progress = calculatePregnancyProgress(dueDate);
+    const weekData = babyDevelopmentData[progress.weeks] || {
+        size: getFruitSize(progress.weeks),
+        milestones: ["Babu bayanan ci gaba don wannan mako"],
+        healthTips: ["Ci gaba da kula da ciki na yau da kullun"],
+        reminder: "Tuntuɓi mai kula da lafiyar ku"
+    };
+
+    // Calculate months (approximate)
+    const months = Math.floor(progress.weeks / 4.345); // Average weeks per month
+    const monthNames = ["Janairu", "Faburairu", "Maris", "Afirilu", "Mayu", "Yuni", 
+                       "Yuli", "Agusta", "Satumba", "Oktoba", "Nuwamba", "Disamba"];
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + (progress.weeks * 7));
+
+    // Update Due Date Card
+    document.getElementById('due-date-display').textContent = 
+        formatDate(dueDate);
+    document.getElementById('days-remaining').textContent = 
+        ` Yanzu kwanaki ${progress.daysRemaining} suka rage a haihu - amma za'a iya kara mako 2,
+         ko a rage mako 2 akan EDD din da muka baku a sama.`;
+
+    // Update Progress Card
+    // Update Progress Card (without month name)
+document.getElementById('current-week').textContent = 
+    `Yanzu mako ${progress.weeks}, da kwana ${progress.days}`;
+
+document.getElementById('current-month').textContent = 
+    `Kuma ana cikin wata na ${months + 1}`; // Only month number (e.g., "Wata 5")
+
+document.getElementById('progress-fill').style.width = 
+    `${progress.percentComplete}%`;
+document.getElementById('progress-percent').textContent = 
+    ` An ci a kalla kashi ${progress.percentComplete}% na goyon ciki`;
+document.getElementById('trimester-info').textContent = 
+    `Zango (trimester) na ${progress.trimester} (${progress.trimester === '1st' ? 'Makonni 1-13' : 
+      progress.trimester === '2nd' ? 'Makonni 14-27' : 'Makonni 28-40'})`;
+
+
+
+    // Update Circular Progress
+    const circumference = 2 * Math.PI * 52;
+    const offset = circumference - (progress.percentComplete / 100) * circumference;
+    document.querySelector('.progress-ring-fill').style.strokeDashoffset = offset;
+    document.getElementById('circular-progress-text').textContent = 
+        `${progress.percentComplete}%`;
+
+    // Update Baby Development Card
+    document.querySelector('.size-comparison').textContent = 
+        `Girman ${weekData.size}`;
+    if (weekData.sizeImage) {
+        document.getElementById('baby-size-image').src = weekData.sizeImage;
+        document.getElementById('baby-size-image').alt = 
+            `Kwatancen girman jariri: ${weekData.size}`;
+    }
+    
+    const milestonesList = document.getElementById('baby-milestones').querySelector('ul');
+    milestonesList.innerHTML = '';
+    weekData.milestones.forEach(milestone => {
+        const li = document.createElement('li');
+        li.textContent = milestone;
+        milestonesList.appendChild(li);
+    });
+
+    // Update Health Tips Card
+    const healthTipElement = document.getElementById('health-tip');
+    if (weekData.healthTips) {
+        healthTipElement.querySelector('p').textContent = Array.isArray(weekData.healthTips) ? 
+            weekData.healthTips.join(' ') : weekData.healthTips;
+        healthTipElement.style.display = 'block';
+    } else {
+        healthTipElement.style.display = 'none';
+    }
+    
+    const reminderElement = document.getElementById('reminder');
+    if (weekData.reminder) {
+        reminderElement.innerHTML = `<i class="fas fa-bell"></i> ${weekData.reminder}`;
+        reminderElement.style.display = 'flex';
+    } else {
+        reminderElement.style.display = 'none';
+    }
+
+    // Update Timeline Marker
+    document.querySelector('.timeline-marker').style.left = 
+        `${progress.percentComplete}%`;
+    document.querySelector('.marker-label').textContent = 
+        `Mako ${progress.weeks}`;
+}
+    // Calculate due date based on last menstrual period (LMP)
+    function calculateDueDate(lmpDate) {
+        const dueDate = new Date(lmpDate);
+        dueDate.setDate(dueDate.getDate() + 280); // 40 weeks * 7 days
+        return dueDate;
+    }
+
+    // Calculate LMP based on due date
+    function calculateLMP(dueDate) {
+        const lmpDate = new Date(dueDate);
+        lmpDate.setDate(lmpDate.getDate() - 280); // 40 weeks * 7 days
+        return lmpDate;
+    }
+
+    // Get fruit/vegetable size comparison for week
+    function getFruitSize(week) {
+        const sizes = {
+            4: 'irin Poppy', 5: 'irin Sesame', 6: 'irin Lentil', 7: 'irin Blueberry', 
+            8: 'irin Rasberi', 9: 'irin Cherry', 10: 'irin Strawberry', 11: 'irin Lime', 
+            12: 'irin Plum', 13: 'irin Peach', 14: 'irin Lemon', 15: 'irin Apple', 
+            16: 'irin Avocado', 17: 'irin Pear', 18: 'irin Bell Pepper', 19: 'irin Tomato', 
+            20: 'irin Ayaba', 21: 'irin Karas', 22: 'irin Spaghetti Squash', 23: 'irin Grapefruit',
+            24: 'irin Masara', 25: 'irin Rutabaga', 26: 'irin Scallion', 27: 'irin Cauliflower',
+            28: 'irin Gauta', 29: 'irin Butternut Squash', 30: 'irin Cabbage', 31: 'irin Coconut',
+            32: 'irin Jicama', 33: 'irin Pineapple', 34: 'irin Melon', 35: 'irin Honeydew',
+            36: 'irin Lettuce', 37: 'irin Swiss Chard', 38: 'irin Leek', 39: 'irin Mini Watermelon',
+            40: 'irin Kabewa'
+        };
+        return sizes[week] || 'irin Watermelon';
+    }
+
+    // Calculate due date - main function
+document.getElementById('calculate-btn').addEventListener('click', function() {
+    const method = document.getElementById('calculation-method').value;
+    let dueDate;
+    
+    // Show spinner on button
+    const calculateBtn = document.getElementById('calculate-btn');
+    const originalBtnText = calculateBtn.innerHTML;
+    calculateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Ana Lissafawa...';
+    calculateBtn.disabled = true;
+    
+    // Use setTimeout to allow UI to update before heavy calculations
+    setTimeout(() => {
+        try {
+            if (method === 'lmp') {
+                const lmp = new Date(document.getElementById('last-period').value);
+                if (isNaN(lmp.getTime())) {
+                    alert('Don Allah shigar da ranar haila ta ƙarshe daidai');
+                    calculateBtn.innerHTML = originalBtnText;
+                    calculateBtn.disabled = false;
+                    return;
+                }
+                
+                dueDate = calculateDueDate(lmp);
+            } else {
+                dueDate = new Date(document.getElementById('due-date').value);
+                if (isNaN(dueDate.getTime())) {
+                    alert('Don Allah shigar da ranar haihuwa daidai');
+                    calculateBtn.innerHTML = originalBtnText;
+                    calculateBtn.disabled = false;
+                    return;
+                }
+            }
+            
+            // Update UI with new design
+            updatePregnancyInfo(dueDate);
+            
+            // Show results
+            document.getElementById('pregnancy-info').style.display = 'block';
+            
+            // Add animation to progress fill
+            const progressFill = document.getElementById('progress-fill');
+            setTimeout(() => {
+                progressFill.style.transition = 'width 1s ease';
+            }, 100);
+            
+            // Scroll to pregnancy info
+            document.getElementById('pregnancy-info').scrollIntoView({ behavior: 'smooth' });
+            
+        } catch (error) {
+            console.error('Error in calculation:', error);
+            alert('An sami matsala yayin lissafin. Don Allah gwada kuma.');
+        } finally {
+            // Restore button state
+            calculateBtn.innerHTML = originalBtnText;
+            calculateBtn.disabled = false;
+        }
+    }, 50); // Small delay to allow spinner to show
+});
+    // Reset calculator
+    document.getElementById('reset-btn').addEventListener('click', function() {
+        document.getElementById('last-period').value = '';
+        document.getElementById('due-date').value = '';
+        document.getElementById('pregnancy-info').style.display = 'none';
+    });
+
+    // Toggle week cards
+    function toggleWeek(header) {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('i');
+        
+        content.classList.toggle('active');
+        
+        if (content.classList.contains('active')) {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+        } else {
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+        }
+    }
+</script>
+</body>
+</html>
