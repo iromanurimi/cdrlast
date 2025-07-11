@@ -103,7 +103,8 @@
     <section class="tracker-hero" data-aos="fade">
         <div class="container">
             <h1>Kalkuletar Lissafa Ovulation</h1>
-            <p>Domin binciko lokacin zuwan ovulation, lokacin sake yin jinin al'ada da ranaku damar samun juna biyu cikin sauki.</p>
+            <p>Domin binciko lokacin da mace take yin ovulation, ranaku 
+                damar samun juna biyu, lokacin sake ganin jinin al'ada  ta gaba, da kuma lokacin da ya dace ayi gwajin ciki.</p>
         </div>
     </section>
 
@@ -114,7 +115,7 @@
         <div class="calculator-card" data-aos="fade-up">
             <h2 class="ico"><i class="fas fa-calculator"></i> Kalkuletar Ovulation</h2>
             <div class="input-group">
-                <label for="last-period">Shigar Da Ranar Da Kika Fara Al'ada:</label>
+                <label for="last-period">Saka Ranar Da Kika Fara Jinin Al'ada:</label>
                 <input type="date" id="last-period">
             </div>
             
@@ -158,7 +159,7 @@
             <!-- Calendar Section (Now First) -->
             <div class="calendar-container">
                 <div class="calendar-header">
-                    <h3 class="calendar-title">Kalandar Ovulation</h3>
+                    <h3 class="calendar-title">Kalandar Lissafa Ovulation</h3>
                     <div class="calendar-navi">
                         <button class="btn btn-secondary" id="prev-month">
                             <i class="fas fa-chevron-left"></i>
@@ -194,9 +195,11 @@
                         <i class="fas fa-egg"></i>
                     </div>
                     <div class="card-content">
-                        <h3>Ranar Zuwan Ovulation</h3>
+                        <h3>Ranar Ovulation (Ovulation Day)</h3>
                         <div class="week-display" id="ovulation-day">May 1, 2024</div>
-                        <p>Wannan shine ranar da kwai zai fita daga cikin ovary</p>
+                        <div class="health-tip">
+                          <p>Wannan ita ce ranar da kwai ke fita daga ovary zuwa bututu fallopian in da zai jira  a samu haduwa da maniyyi, kuma wannan lokaci ne mafi dacewa ga mace ta samu ciki.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -208,7 +211,7 @@
                     <div class="card-content">
                         <h3>Lokutan Daukar Ciki</h3>
                         <div class="baby-size">
-                            <div class="size-comparison">Mafi kyawun lokaci don yin jima'i</div>
+                            <div class="size-comparison">Lokutan da ya fi dacewa a yawaita jima'i don samun ciki:</div>
                         </div>
                         <div class="baby-milestones">
                             <ul>
@@ -226,7 +229,7 @@
                         <i class="fas fa-calendar-day"></i>
                     </div>
                     <div class="card-content">
-                        <h3>Jini Al'ada Zata Iya Dawowa a Ranar</h3>
+                        <h3>Haila Ta Gaba (Next Period)</h3>
                         <div class="due-date" id="next-period">May 15, 2024</div>
                         <div class="countdown" id="period-countdown">14 kwanaki sun rage</div>
                     </div>
@@ -238,12 +241,12 @@
                         <i class="fas fa-vial"></i>
                     </div>
                     <div class="card-content">
-                        <h3>Bayanin Gwajin Ciki</h3>
+                        <h3>Gwajin Ciki (Pregnancy Test)</h3>
                         <div class="health-tip">
                             <p id="test-date-info">Mafi kyau ku jira kwana 1 bayan ranar da kuke tsammanin jinin al'ada (May 16, 2024) don mafi ingantaccen sakamako.</p>
                         </div>
                         <div class="reminder">
-                            <i class="fas fa-bell"></i> Alamomin farko na ciki: rashin jini, zazzabi, ciwon nonu
+                            <i class="fas fa-bell"></i> Alamomin farko na shigar ciki: Sun hada da rashin zuwan al'ada, jin gajiya da kasala, ciwon nono, tashin zuciya ko kumallo dss..
                         </div>
                     </div>
                 </div>
@@ -509,7 +512,7 @@
               const testDate = new Date(nextPeriodDate);
               testDate.setDate(testDate.getDate() + 1); // Day after expected period
               document.getElementById('test-date-info').textContent = 
-                  `Mafi kyau ku jira kwana 1 bayan ranar da kuke tsammanin jinin al'ada (${formatDate(testDate)}) don mafi ingantaccen sakamako.`;
+                  `Lokacin da ya dace ai gwajin ciki shi ne kwana daya bayan ranar da kuke tsammanin ganin jinin al'ada (${formatDate(testDate)}) domin samu mafi ingantaccen sakamako.`;
               
               // Calculate cycle progress
               const daysPassed = Math.floor((today - lastPeriod) / (1000 * 60 * 60 * 24));
@@ -521,7 +524,7 @@
               // Update countdown to next period
               const daysRemaining = cycleLength - daysPassed;
               document.getElementById('period-countdown').textContent = 
-                  `${daysRemaining} kwanaki sun rage`;
+                  `Kwanaki ${daysRemaining} suka rage domin sake ganin wata al'adar.`;
               
               // Update timeline marker
               document.querySelector('.timeline-marker').style.left = `${percentComplete}%`;
