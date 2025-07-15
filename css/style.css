@@ -1286,7 +1286,6 @@ p {
 }
 
 img {
-    margin-top: 20px;
     max-width: 100%;
     height: auto;
 }
@@ -1360,9 +1359,6 @@ img {
     align-items: center;
     gap: 0.5rem;
     transition: transform 0.3s ease;
-}
-label{
-    margin-top: 20px;
 }
 
 .logo:hover {
