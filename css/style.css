@@ -1195,7 +1195,8 @@
   --secondary: #FF6584; /* Soft coral */
   --secondary-light: rgba(255, 101, 132, 0.1);
   --secondary-dark: #e65a75;
-  --accent: #00BFA6;   /* Teal */
+  /*--accent: #00BFA6;   /* Teal */
+  --accent: #4CC9F0;   /* Teal */
   --accent-light: rgba(0, 191, 166, 0.1);
   --light: #F8F9FF;    /* Very light purple */
   --dark: #2E2D4D;     /* Deep navy */
@@ -1285,6 +1286,7 @@ p {
 }
 
 img {
+    margin-top: 20px;
     max-width: 100%;
     height: auto;
 }
@@ -1573,7 +1575,7 @@ img {
 }
 
 .btn-secondary {
-    background-color: var(--secondary);
+    background-color: var(--accent);
     color: white;
     box-shadow: var(--shadow-sm);
 }
@@ -1729,7 +1731,7 @@ img {
 
 
 .features::before {
-     content: '';
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -1814,7 +1816,7 @@ img {
 }
 
 .feature-card .btn {
-    align-self: flex-start;
+    align-self: center;
     margin-top: auto;
 }
 
