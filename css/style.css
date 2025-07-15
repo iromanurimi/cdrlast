@@ -1196,7 +1196,7 @@
   --secondary-light: rgba(255, 101, 132, 0.1);
   --secondary-dark: #e65a75;
   /*--accent: #00BFA6;   /* Teal */
-  --accent: #4CC9F0;   /* Teal */
+  --accent: #1EACCB;   /* Teal */
   --accent-light: rgba(0, 191, 166, 0.1);
   --light: #F8F9FF;    /* Very light purple */
   --dark: #2E2D4D;     /* Deep navy */
@@ -1548,6 +1548,7 @@ img {
 }
 
 .btn-primary {
+    margin-top: 10px;
     background-color: var(--accent);
     color: white;
     box-shadow: var(--shadow-md);
