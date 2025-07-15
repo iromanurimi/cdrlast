@@ -1602,9 +1602,7 @@ img {
     justify-content: center;
     padding: 4rem 1.5rem;
     text-align: center;
-    background: 
-        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), /* Dark overlay for better text contrast */
-        url('https://images.unsplash.com/photo-1516589091380-5d6019716b4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    background-color: white;
     position: relative;
     overflow: hidden;
     color: white; /* White text for better contrast */
